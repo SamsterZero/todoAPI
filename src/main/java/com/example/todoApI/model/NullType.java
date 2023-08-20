@@ -1,4 +1,4 @@
-package com.example.todoApI.model.response.error;
+package com.example.todoApI.model;
 
 public class NullType {
 

@@ -9,17 +9,16 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.example.todoApI.model.response.error.NullType;
+import com.example.todoApI.model.NullType;
 
 @RestControllerAdvice
 public class APIErrorHandler extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler(NullPointerException.class)
 	public ResponseEntity<?> nullPoint(RuntimeException runtimeException, WebRequest request) {
-		NullType nullType = new NullType(416, "Please Enter Valid Range");
+		NullType nullType = new NullType(204, runtimeException.getMessage());
 		System.out.println(nullType);
-		return handleExceptionInternal(runtimeException, nullType, new HttpHeaders(),
-				HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE, request);
+		return handleExceptionInternal(runtimeException, nullType, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
 	}
 
 	@ExceptionHandler(HttpClientErrorException.class)
@@ -27,11 +26,11 @@ public class APIErrorHandler extends ResponseEntityExceptionHandler {
 		return handleExceptionInternal(runtimeException, null, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
 	}
 
-//	@ExceptionHandler(MissingServletRequestParameterException.class)
-//	public ResponseEntity<?> missing(RuntimeException runtimeException, WebRequest request) {
-//		NullType nullType = new NullType(416, "Please Enter Valid Range");
-//		return handleExceptionInternal(runtimeException, nullType, new HttpHeaders(),
-//				HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE, request);
-//
-//	}
+	@ExceptionHandler(IllegalArgumentException.class)
+	public ResponseEntity<?> illegalArgument(RuntimeException runtimeException, WebRequest request) {
+		NullType nullType = new NullType(406, runtimeException.getMessage());
+		System.out.println(nullType);
+		return handleExceptionInternal(runtimeException, nullType, new HttpHeaders(), HttpStatus.NOT_ACCEPTABLE,
+				request);
+	}
 }

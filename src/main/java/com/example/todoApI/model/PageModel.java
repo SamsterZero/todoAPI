@@ -1,4 +1,4 @@
-package com.example.todoApI.model.response;
+package com.example.todoApI.model;
 
 import java.util.List;
 import java.util.Objects;

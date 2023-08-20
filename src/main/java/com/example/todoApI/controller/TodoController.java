@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
 
-import com.example.todoApI.model.request.Todo;
-import com.example.todoApI.model.response.SuccessResponse;
+import com.example.todoApI.model.SuccessResponse;
+import com.example.todoApI.model.Todo;
 import com.example.todoApI.service.TodoService;
 
 @RestController
@@ -25,8 +25,8 @@ public class TodoController {
 
 	@PostMapping("/AddTodo")
 	public ResponseEntity<?> addTask(@RequestBody Todo todo) {
-		System.out.println("Task : " + todo.getTask());
-		return ResponseEntity.ok(todoService.addOrUpdateTask(todo));
+		System.out.println("Task : " + todo);
+		return ResponseEntity.ok(todoService.addTask(todo.getTask()));
 	}
 
 	@GetMapping("/TodoList")
@@ -43,13 +43,14 @@ public class TodoController {
 			throw new HttpClientErrorException(HttpStatusCode.valueOf(400));
 		}
 		System.out.println("SI : " + startId + "\nEI : " + endId);
+
 		return ResponseEntity.ok(todoService.getTaskListBetween(startId, endId, pageable));
 	}
 
 	@PutMapping("/ChangeTodo")
 	public ResponseEntity<?> updateTodo(@RequestBody Todo todo) {
 		System.out.println("Task : " + todo.getTask());
-		return ResponseEntity.ok(todoService.addOrUpdateTask(todo));
+		return ResponseEntity.ok(todoService.UpdateTask(todo));
 	}
 
 	@DeleteMapping("/RemoveTodo")
