@@ -6,8 +6,15 @@ For trying out this application yourself you'll require the following:
 
 1. JDK 17 or Above
 2. [Ecllipse](https://www.eclipse.org/downloads/) or [VScode](https://code.visualstudio.com/download) with required extensions
+3. [MYSQL](https://dev.mysql.com/downloads/installer/)
 
-Open the project in your IDE and right click on the file containing the main method and select "Run as Java Applicaion" if using Ecllipse or "Run Java" if using VS Code.
+Open the project in your IDE and open src/main/resources/applicaitons.properties, change the below properties as per your configuration in MySQL.
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/uts
+spring.datasource.username=root
+spring.datasource.password=root123
+```
+Right click on the file containing the main method and select "Run as Java Applicaion" if using Ecllipse or "Run Java" if using VS Code.
 
 Use postman to test the application with below urls:
 
