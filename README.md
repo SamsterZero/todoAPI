@@ -7,6 +7,10 @@ For trying out this application yourself you'll require the following:
 1. JDK 17 or Above
 2. [Ecllipse](https://www.eclipse.org/downloads/) or [VScode](https://code.visualstudio.com/download) with required extensions
 
+Open the project in your IDE and right click on the file containing the main method and select "Run as Java Applicaion" if using Ecllipse or "Run Java" if using VS Code.
+
+Use postman to test the application with below urls:
+
 1. POST API : `http://localhost:8080/todoAPI/AddTodo`
     >Request JSON :
       ```json
