@@ -1,4 +1,12 @@
 # todoAPI
+
+This is an API using CRUD methods to be implemented in an todoList application.
+
+For trying out this application yourself you'll require the following:
+
+1. JDK 17 or Above
+2. [Ecllipse](https://www.eclipse.org/downloads/) or [VScode](https://code.visualstudio.com/download) with required extensions
+
 1. POST API : `http://localhost:8080/todoAPI/AddTodo`
     >Request JSON :
       ```json
