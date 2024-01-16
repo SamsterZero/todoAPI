@@ -12,7 +12,7 @@ Open the project in your IDE and open src/main/resources/applicaitons.properties
 ```
 spring.datasource.url=jdbc:mysql://localhost:3306/xyz
 spring.datasource.username=root
-spring.datasource.password=root123
+spring.datasource.password=root
 ```
 Right click on the file containing the main method and select "Run as Java Applicaion" if using Ecllipse or "Run Java" if using VS Code.
 
