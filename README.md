@@ -10,7 +10,7 @@ For trying out this application yourself you'll require the following:
 
 Open the project in your IDE and open src/main/resources/applicaitons.properties, change the below properties as per your configuration in MySQL.
 ```
-spring.datasource.url=jdbc:mysql://localhost:3306/uts
+spring.datasource.url=jdbc:mysql://localhost:3306/xyz
 spring.datasource.username=root
 spring.datasource.password=root123
 ```
